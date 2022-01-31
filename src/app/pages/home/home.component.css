@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+button:focus {
+    outline: none;
+}
+
+button {
+    margin: 5px 0;
+}
+.content{
+    background: white;
+    padding: 1%;
+}
+
+.mat-icon {
+    font-size: 21px;
+    width: 21px;
+    padding: 0;
+}
+.mat-table .mat-cell{
+    height: auto    ;
+}
+
+.btn-add * {
+    color: white;
+}
+
+
+
+
+.select-filter {
+    padding: 0vw;
+}

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@progress/kendo-theme-bootstrap/dist/all.scss";
+@import "~bootstrap/scss/bootstrap.scss"; */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.alc {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.al-r {
+    justify-content: flex-end;
+}
+
+.al-l {
+    justify-content: flex-start;
+}
+
+.al-c {
+    justify-content: center;
+}
+
+html {
+    position: initial !important;
+    overflow-y: initial !important;
+}
+
+html.cdk-global-scrollblock body {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

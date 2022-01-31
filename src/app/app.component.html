@@ -1,0 +1,15 @@
+<section class="m-0 p-0">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <mat-toolbar color="primary">Configuración</mat-toolbar>
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (toggleSidenav)="sidenav.toggle()"></app-header>
+      <div class="example-container p-2">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>

@@ -1,0 +1,62 @@
+<div class="new-register-container">
+  <form [formGroup]="newRegisterForm" *ngIf="newRegisterForm" (ngSubmit)="addNew()">
+    <div class="row al-c">
+      <div
+        formArrayName="inputs"
+        *ngFor="let input of inputs.controls; let i = index"
+      >
+        <div [formGroupName]="i">
+          <div class="mx-2 col-5" *ngFor="let item of dataInputs.columns; let j = index">
+              <mat-form-field
+                *ngIf="!(item.dataType === 'Date')"
+                appearance="outline"
+              >
+                <mat-label>{{ item.header }}</mat-label>
+                <input
+                  matInput
+                  placeholder="{{ item.header }}"
+                  formControlName="{{ item.header }}"
+                  required
+                  autocomplete="off"
+                  type="{{item.dataType === 'Int' ? 'number': 'text'}}"
+                />
+                <mat-error *ngIf="[item.header].invalid"
+                  >Ingresed un{{ item.header }} valido</mat-error
+                >
+              </mat-form-field>
+
+              <mat-form-field
+                *ngIf="item.dataType === 'Date'"
+                appearance="outline"
+              >
+                <mat-label>{{ item.header }}</mat-label>
+                <input
+                  placeholder="{{ item.header }}"
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="{{ item.header }}"
+                  required
+                  autocomplete="off"
+                />
+                <mat-error *ngIf="i.invalid"
+                  >Ingresed un{{ item.header }} valido</mat-error
+                >
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <div class="w-100 footer-actions alc al-c my-3">
+        <button class="bg-light" mat-button mat-dialog-close>Cancelar</button>
+        <button [disabled]="newRegisterForm.invalid" type="submit"  class="bg-info text-white" mat-raised-button>Guardar</button>
+    </div>
+  </form>
+</div>
